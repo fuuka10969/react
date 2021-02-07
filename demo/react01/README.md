@@ -26,15 +26,18 @@ npm start
 ### React
 
 1. Fragment 
+
 React.Fragment 组件能够在不额外创建 DOM 元素的情况下，让 render() 方法中返回多个元素。一个常见模式是一个组件返回多个元素。Fragments 允许你将子列表分组，而无需向 DOM 添加额外节点。
 
 2. dangerouslySetInnerHTML属性
+
 用于转译html
 ```
 <li dangerouslySetInnerHTML={{ __html:item }}></li>
 ```
 
 3. this指向
+
 方法一：构造函数内设定
 ```
 this.handleClick = this.handleClick.bind(this)
@@ -67,7 +70,8 @@ handleClick = () => {}
   };
   ```
   - defaultProps: 通过配置特定的 defaultProps 属性来定义 props 的默认值
-    ```
+  
+  ```
   import PropTypes from 'prop-types'
   AnimationItem.defaultProps = {
     from: '国创',
