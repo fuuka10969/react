@@ -70,7 +70,7 @@ handleClick = () => {}
   };
   ```
   - defaultProps: 通过配置特定的 defaultProps 属性来定义 props 的默认值
-  
+
   ```
   import PropTypes from 'prop-types'
   AnimationItem.defaultProps = {
@@ -86,17 +86,67 @@ ref={(ul) => { this.ul = ul }}
 在某一时刻，自动执行的函数
 
 #### Initialization 初始化阶段
-setup props and state
+1. setup props and state
 
 #### Mounting dom挂载阶段
 1. componentWillMount: 组件将要挂载到页面的时刻
 2. render: 组件挂载中
 3. componentDidMount: 组件挂载完成的时刻
 
-#### Updation 
+#### Updation 组件发生更新阶段
+##### props (属性发生改变时)
+1. componentWillReceiveProps
+   组件第一次存在于dom中，函数不被执行，只有发生变化时才会在dom中执行
+2. shouldComponentUpdate
+3. componentWillUpdate
+4. render
+5. componentDidUpdate
 
-#### Unmounting
+##### states (状态发生改变时)
+1. shouldComponentUpdate
+可以控制后面步骤的渲染
+```
+shouldComponentUpdate() {
+  return false
+}
+```
+2. componentWillUpdate
+3. render
+4. componentDidUpdate
 
+#### Unmounting 卸载阶段
+1. componentWillUnmount
+
+
+### 生命会周期改善组件性能
+子组件值未改变时也实时更新会影响性能问题：
+```
+shouldComponentUpdate(nextProps, nextState) {
+  // 当值改变时才进行更新
+  return nextProps.content !== this.props.content
+}
+```
+
+### Axios 远程数据请求
+```
+npm install --save axios
+```
+
+[模拟接口: fast-mock](https://www.fastmock.site/#/)
+
+
+### 动画库 react-transition-group
+```
+npm install --save react-transition-group
+```
+
+1. Transition
+  - xxx-enter
+  - xxx-enter-active
+  - xxx-enter-done
+  - xxx-exit
+  - xxx-exit-active
+  - xxx-exit-done
 
 ## 插件
 1. Simple React Snippets
@@ -111,5 +161,3 @@ setup props and state
   详情查阅Details
 
 2. react-devtools
-
-3. 

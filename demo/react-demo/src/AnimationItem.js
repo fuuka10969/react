@@ -6,8 +6,21 @@ class AnimationItem extends Component {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
-  state = {  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.content !== this.props.content
+  }
+
+  // componentWillReceiveProps() {
+  //   console.log('child-componentWillReceiveProps')
+  // }
+
+  // componentWillUnmount() {
+  //   console.log('child-componentWillUnmount')
+  // }
+  
   render() { 
+    // console.log('child-render')
     return ( 
       <li onClick={this.handleClick}>
         {this.props.content} {this.props.from}
