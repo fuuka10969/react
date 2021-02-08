@@ -21,7 +21,7 @@ class Animation extends Component {
   // }
   componentDidMount() {
     // console.log('componentDidMount----组件挂载完成的时刻')
-    axios.get('https://www.fastmock.site/mock/8e909c44ed40d10491b4e3b0eebf164c/api/api')
+    axios.get('https://www.fastmock.site/mock/8e909c44ed40d10491b4e3b0eebf164c/api/animation')
       .then((res) => {
         // console.log('axios 获取数据成功' + JSON.stringify(res))
         this.setState({
